@@ -1,38 +1,115 @@
-.App {
-  text-align: center;
-}
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+ .border{
+  border: 0.5rem outset navy;
+  padding: 50px;
+  margin: 150px 150px;
+  border-radius: 20px;
+  background-color: #F6F8FC;
+  /****max-width: 600px;****/
+  /****margin: 20px auto;****/
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  
+  .middle1{
+      position: absolute;
+      right: 328px;
+      top: 380px;
+      font-family: arial,sans-serif;
+      line-height: 16px;
+      font-size: 13px;
+      font-weight: bolder;
+      color: #70757a;
   }
-  to {
-    transform: rotate(360deg);
+  .middle2 {
+      position: absolute;
+      right: 332px;
+      top: 400px;
+      font-family: arial,sans-serif;
+      font-size: 13px;
+      line-height: 16px;
+      color: #70757a;
+      font-weight: bolder;
   }
-}
+  .col-3{
+      color: blue;
+      font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      font-weight: bold;
+      margin: 10px auto;
+      font-size: 18px;
+  }
+  .col-2{
+      font-weight:bold;
+      color: rgb(110, 109, 109);
+      font-size: large;
+      text-align: center;
+  }
+  
+  .insideCol2{
+      font-weight:bold;
+      color: #949697;
+      font-size: small;
+  }
+  
+  .search{
+      color: white;
+      background: #42A5F5;
+      padding: 10px auto;
+  
+  }
+  .current {
+      color: white;
+      background: #8EC351;
+      padding: 10px auto;
+  
+  }
+   pr{
+      font-family: 'Franklin Gothic Medium','Arial Narrow',Arial,sans-serif;
+      font-size: small;
+  }
+  .deg1{
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 34px;
+      line-height: 64px;
+      margin-left: -5px;
+  }
+  
+  .deg2{
+      font-family: arial,sans-serif;
+      font-size: 12px;
+      line-height: 16px;
+      position: relative;
+      top: -20px;
+      
+  }
+  
+  .deg2 .active{
+      color: black;
+      cursor: default;
+      text-decoration: none;
+  
+  }
+  
+  .deg2 .active:hover{
+      text-decoration: none;
+  }
+  
+  .concentration{
+      font-size: 15px;
+      font-stretch:normal;
+      color: #70757a;
+      text-transform: capitalize;
+  }
+  
+  .imageChange{
+      position: relative;
+      top: -10px;
+      margin-right: 5px;
+  }
+  
+  .link{
+      padding: 50px;
+      margin-bottom: 150px 150px;
+      position: absolute;
+      right: 750px;
+      top: 650px;
+  }
+  
