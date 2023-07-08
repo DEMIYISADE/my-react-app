@@ -17,6 +17,7 @@ export default function Weather (props){
         <div className="row">
         {days.map(function(day, index){
             return (
+                
                     firstPart)
         })}
     </div>

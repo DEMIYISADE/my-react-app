@@ -17,19 +17,11 @@ function App(props) {
       description: response.data.weather[0].description,
       humidity: response.data.main.humidity,
       wind: response.data.wind.speed,
-      coordinates: response.data.coord,
+      coordinatesLong: response.data.coord.lon,
+      coordinatesLat: response.data.coord.lat,
       name: response.data.name})
-    } else{
-      setChange({
-        temperature: 34,
-        description: "shine",
-        humidity: 50,
-        wind: 80,
-        coordinates: 34.235,
-        name: "Paris"})
-    }
+    } 
 }
-
   function handleSubmit(event){
     event.preventDefault();
 
