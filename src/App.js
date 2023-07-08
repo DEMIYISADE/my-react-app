@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import axios from "axios";
+import Weather from "./Weather";
 import './App.css';
 
 function App(props) {
@@ -16,7 +17,16 @@ function App(props) {
       description: response.data.weather[0].description,
       humidity: response.data.main.humidity,
       wind: response.data.wind.speed,
-      coordinates: response.data.coord})
+      coordinates: response.data.coord,
+      name: response.data.name})
+    } else{
+      setChange({
+        temperature: 34,
+        description: "shine",
+        humidity: 50,
+        wind: 80,
+        coordinates: 34.235,
+        name: "Paris"})
     }
 }
 
@@ -45,7 +55,8 @@ function App(props) {
       return minute
     }
   }
-  let time = `${day} ${hour}:${correctMinute()} `;
+  let dayTime = `${day} ${hour}:${correctMinute()} `;
+  let time = `${hour}:${correctMinute()} `;
 
   return (
     <div className="App">
@@ -75,13 +86,13 @@ function App(props) {
             </form>
             <br/>
             <br/>
-            <pr className="concentration">
-              <span id="city-onpage"> {city} </span>
+            <h4 className="concentration">
+              <span id="city-onpage"> {change.name} </span>
               <br/>
-              <span id="getCurrentTime"> {time} </span>
+              <span id="getCurrentTime"> {dayTime} </span>
               <br/>
               <span id="weatherDescription"> {change.description}</span>
-            </pr>
+            </h4>
             <br/>
             <div className="middle1">Humidity: {change.humidity}%</div>
             <div className="middle2"> Wind: {change.wind}km/h</div>
@@ -95,7 +106,7 @@ function App(props) {
             <br/>
             <br/>
             <div className = "weatherForecast" id="forecast">
-              Place Forecast Block Here
+              <Weather data={change} Datetime={time}/>
             </div>
             <a href="https://github.com/DEMIYISADE/Weather-App-Clean-Coding--" target ="_blank" className="link" rel="noreferrer">
               Open-Source Code by Bidemi Olayisade
