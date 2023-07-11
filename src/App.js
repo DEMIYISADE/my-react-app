@@ -2,37 +2,12 @@ import React, {useState} from "react";
 import axios from "axios";
 import Weather from "./Weather";
 import './App.css';
+import Date from "./Date"
 
 function App(props) {
-  const[city, setCity] = useState(" ");
+  const [city, setCity] = useState(" ");
   const [change, setChange] = useState(" ");
-
-
-  function displayWeatherDetails(response){
-
-    if (setCity !== null){
-
-    setChange({
-      temperature: Math.round(response.data.main.temp),
-      description: response.data.weather[0].description,
-      humidity: response.data.main.humidity,
-      wind: response.data.wind.speed,
-      coordinatesLong: response.data.coord.lon,
-      coordinatesLat: response.data.coord.lat,
-      name: response.data.name})
-    } 
-}
-  function handleSubmit(event){
-    event.preventDefault();
-
-      let apiKey ="5354b60afda2b7800186c06153932396";
-      let weatherApi = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-      axios.get(weatherApi).then(displayWeatherDetails);
-  }
-
-  function citySearch(events){
-      setCity(events.target.value);
-  }
+  const [load, setLoad] = useState(true);
 
   let now = new Date();
   let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
@@ -50,6 +25,9 @@ function App(props) {
   let dayTime = `${day} ${hour}:${correctMinute()} `;
   let time = `${hour}:${correctMinute()} `;
 
+  
+  if (load) {
+    
   return (
     <div className="App">
       <header className="App-header">
@@ -98,18 +76,47 @@ function App(props) {
             <br/>
             <br/>
             <div className = "weatherForecast" id="forecast">
-              <Weather data={change} Datetime={time}/>
+              <Weather cityName = {change.name} lon={change.coordinatesLong} lat= {change.coordinatesLat} Datetime={time}/>
             </div>
             <a href="https://github.com/DEMIYISADE/Weather-App-Clean-Coding--" target ="_blank" className="link" rel="noreferrer">
               Open-Source Code by Bidemi Olayisade
             </a>
           </div>
         </div>
-
-
       </header>
     </div>
   );
+  }else{
+    return(
+      "Loading..."
+    )
+  }
+
+  function handleSubmit(event){
+    event.preventDefault();
+    let apiKey ="bec7afc6a5f297d8e8a36230238a3ff6";
+    let weatherApi = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    axios.get(weatherApi).then(displayWeatherDetails);
+  }
+
+  function citySearch(events){
+      setCity(events.target.value);
+  }
+
+  function displayWeatherDetails(response){
+
+    if (setCity !== null){
+
+     setChange({
+      temperature: Math.round(response.data.main.temp),
+      description: response.data.weather[0].description,
+      humidity: response.data.main.humidity,
+      wind: response.data.wind.speed,
+      coordinatesLong: response.data.coord.lon,
+      coordinatesLat: response.data.coord.lat,
+      name: response.data.name})
+    } 
+}
 }
 
 export default App;
